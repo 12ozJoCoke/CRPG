@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // Ben Martinson 2020 VGD-AM
 namespace TheCoolCRPG
 {
+    //egg
     class Program
     {
         private static Player _player = new Player();

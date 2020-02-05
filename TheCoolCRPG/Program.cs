@@ -15,6 +15,7 @@ namespace TheCoolCRPG
         {
             GameEngine.initialize();
             _player.Name = "Fred the Fearless";
+            _player.MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
 
             while (true)
             {
@@ -44,10 +45,30 @@ namespace TheCoolCRPG
                 Console.WriteLine("Help is coming later... stay tuned.");
 
             } else if (input.Contains("look")) {
-                //DisplayCurrentLocation
-            } else
+                DisplayCurrentLocation();
+            } else if (input.Contains("north"))
+            {
+                _player.MoveNorth();
+            }else if (input.Contains("South"))
+            {
+                _player.MoveSouth();
+            }else if (input.Contains("West"))
+            {
+                _player.MoveWest();
+            }else if (input.Contains("East"))
+            {
+                _player.MoveEast();
+            }
             {
                 Console.WriteLine("Ich verstehe nicht");
+            }
+        }
+        private static void DisplayCurrentLocation()
+        {
+            Console.WriteLine("You are at: {0}", _player.CurrentLocation.Name);
+            if (_player.CurrentLocation.Description != "")
+            {
+                Console.WriteLine("\t{0}\n", _player.CurrentLocation.Description); 
             }
         }
     }

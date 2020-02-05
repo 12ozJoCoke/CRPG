@@ -42,25 +42,34 @@ namespace TheCoolCRPG
         {
             if (input.Contains("help"))
             {
-                Console.WriteLine("Help is coming later... stay tuned.");
+                Console.WriteLine("cool tip 1) no \n");
 
-            } else if (input.Contains("look")) {
+            } else if (input.Contains("look"))
+            {
                 DisplayCurrentLocation();
+
             } else if (input.Contains("north"))
             {
                 _player.MoveNorth();
-            }else if (input.Contains("South"))
+
+            }else if (input.Contains("south"))
             {
                 _player.MoveSouth();
-            }else if (input.Contains("West"))
+
+            }else if (input.Contains("west"))
             {
                 _player.MoveWest();
-            }else if (input.Contains("East"))
+
+            }else if (input.Contains("east"))
             {
                 _player.MoveEast();
+
             }
+
+            else
             {
                 Console.WriteLine("Ich verstehe nicht");
+
             }
         }
         private static void DisplayCurrentLocation()

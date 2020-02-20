@@ -8,7 +8,7 @@ namespace TheCoolCRPG
 {
     public static class GameEngine
     {
-        public static string version = "0.0.1";
+        public static string version = "0.0.2";
 
         public static void initialize()
         {

@@ -13,7 +13,7 @@ namespace TheCoolCRPG
         public string Description;
         public int RewardExperiencePoints;
         public int RewardGold;
-        public InventoryItem RewardItem;
+        public Item RewardItem;
         public List<QuestCompletionItem> QuestCompletionItems;
 
         public Quest(int iD, string name, string description, 

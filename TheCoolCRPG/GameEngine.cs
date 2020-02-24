@@ -16,7 +16,9 @@ namespace TheCoolCRPG
             Console.WriteLine("\n\nWelcome to the World of {0}", World.WorldName);
             Console.WriteLine();
             World.ListLocations();
-
+            World.ListItems();
+            World.ListMonsters();
+            World.ListQuests();
         }
     }
 }

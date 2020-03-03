@@ -19,11 +19,12 @@ namespace TheCoolCRPG
         public Location LocationToEast;
         public Location LocationToWest;
 
-        public Location(int iD, string name, string description, Item iteamRequiredToEnter = null, Quest questAvailableHere = null, Monster monsterLivingHere = null)
+        public Location(int iD, string name, string description, Item itemRequiredToEnter = null, Quest questAvailableHere = null, Monster monsterLivingHere = null)
         {
             ID = iD;
             Name = name;
             Description = description;
+            ItemRequiredToEnter = itemRequiredToEnter;
         }
 
 

@@ -38,6 +38,7 @@ namespace TheCoolCRPG
             if (CurrentLocation.LocationToNorth != null)
             {
                 MoveTo(CurrentLocation.LocationToNorth);
+                Program.DisplayCurrentLocation();
             }
             else
             {
@@ -50,6 +51,7 @@ namespace TheCoolCRPG
             if (CurrentLocation.LocationToSouth != null)
             {
                 MoveTo(CurrentLocation.LocationToSouth);
+                Program.DisplayCurrentLocation();
             }
             else
             {
@@ -62,6 +64,7 @@ namespace TheCoolCRPG
             if (CurrentLocation.LocationToWest != null)
             {
                 MoveTo(CurrentLocation.LocationToWest);
+                Program.DisplayCurrentLocation();
             }
             else
             {
@@ -74,6 +77,7 @@ namespace TheCoolCRPG
             if (CurrentLocation.LocationToEast != null)
             {
                 MoveTo(CurrentLocation.LocationToEast);
+                Program.DisplayCurrentLocation();
             }
             else
             {

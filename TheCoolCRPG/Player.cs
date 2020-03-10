@@ -35,13 +35,16 @@ namespace TheCoolCRPG
                 bool playerHasRequiredItem = false;
                 foreach (InventoryItem ii in this.Inventory)
                 {
-                    playerHasRequiredItem = true;
-                    break;
+                    if (ii.Details.ID == loc.ItemRequiredToEnter.ID)
+                    {
+                        playerHasRequiredItem = true;
+                        break;
+                    }
                 }
 
                 if (!playerHasRequiredItem)
                 {
-                    Console.WriteLine("Go get {0} can come back later", loc.ItemRequiredToEnter);
+                    Console.WriteLine("Go get {0} and come back later", loc.ItemRequiredToEnter.Name);
                     return;
                 }
             }

@@ -11,7 +11,7 @@ namespace TheCoolCRPG
         public int ID;
         public string Name;
         public string Description;
-        public InventoryItem ItemRequiredToEnter;
+        public  Item ItemRequiredToEnter;
         public Quest QuestAvailableHere;
         public Monster MonsterLivingHere;
         public Location LocationToNorth;

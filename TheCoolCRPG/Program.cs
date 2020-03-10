@@ -48,7 +48,47 @@ namespace TheCoolCRPG
         {
             if (input.Contains("help"))
             {
-                Console.WriteLine("cool tip 1) no \n");
+                int helpvalue = RandomNumberGenerator.NumberBetween(1, 10);
+                if (helpvalue == 1)
+                {
+                    Console.WriteLine("Cool Tip 1: No");
+                }
+                if (helpvalue == 2)
+                {
+                    Console.WriteLine("Cool Tip 2: I don't wanna");
+                }
+                if (helpvalue == 3)
+                {
+                    Console.WriteLine("Cool Tip 3: Help is for the weak");
+                }
+                if (helpvalue == 4)
+                {
+                    Console.WriteLine("Cool Tip 4: See The Gospel According To Zork for More Information");
+                }
+                if (helpvalue == 5)
+                {
+                    Console.WriteLine("Cool Tip 5: AAAAAAAAAAAAAAAAAAAAAAA");
+                }
+                if (helpvalue == 6)
+                {
+                    Console.WriteLine("Cool Tip 6: You're playing the Cool CRPG! How neat!");
+                }
+                if (helpvalue == 7)
+                {
+                    Console.WriteLine("Cool Tip 7: This isn't Jim's Bjork. Don't make that mistake.");
+                }
+                if (helpvalue == 8)
+                {
+                    Console.WriteLine("Cool Tip 8: I hope this is helpful.");
+                }
+                if (helpvalue == 9)
+                {
+                    Console.WriteLine("Cool Tip 9: Heehoo Peanut");
+                }
+                if (helpvalue == 10)
+                {
+                    Console.WriteLine("Cool Tip 10: ");
+                }
 
             } else if (input.Contains("look"))
             {

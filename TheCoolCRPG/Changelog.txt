@@ -6,7 +6,7 @@
 + Random Number
 + WhereAmI
 + Shortcut Navignation
-- Location Requirement
++ Location Requirement
 
-//TODO (-)
-//DONE (+)
+v0.0.3 done yay
+

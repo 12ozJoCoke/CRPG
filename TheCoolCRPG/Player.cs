@@ -48,6 +48,8 @@ namespace TheCoolCRPG
                     return;
                 }
             }
+
+            CurrentHitPoints = MaxHitPoints;
             CurrentLocation = loc;
         }
 

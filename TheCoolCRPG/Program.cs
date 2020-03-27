@@ -128,6 +128,24 @@ namespace TheCoolCRPG
                 Console.WriteLine("\tXP:\t\t{0}", _player.ExperiencePoints);
                 Console.WriteLine("\tLevel:\t\t{0}", _player.Level);
                 Console.WriteLine("\tGold:\t\t{0}", _player.Gold);
+            }else if (input == "quests")
+            {
+                if (_player.Quests.Count == 0)
+                {
+                    Console.WriteLine("No Quests Available");
+                }else
+                {
+                    foreach (PlayerQuest playerQuests in _player.Quests)
+                    {
+                        Console.WriteLine("{0}: {1}", playerQuests.Details.Name, playerQuests.IsCompleted ? "Completed" : "Incomplete");
+                    }
+                }
+            }else if (input == "hey it works")
+            {
+                Console.WriteLine("For now.");
+            }else if (input == "it broke")
+            {
+                Console.WriteLine("You shouldn't have said anything about it working. I warned you.");
             }
 
             else

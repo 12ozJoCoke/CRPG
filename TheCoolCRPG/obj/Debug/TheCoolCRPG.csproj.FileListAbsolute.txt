@@ -5,3 +5,10 @@ C:\VGD\AMMartinson\TheCoolCRPG\TheCoolCRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csp
 C:\VGD\AMMartinson\TheCoolCRPG\TheCoolCRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csproj.CoreCompileInputs.cache
 C:\VGD\AMMartinson\TheCoolCRPG\TheCoolCRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.exe
 C:\VGD\AMMartinson\TheCoolCRPG\TheCoolCRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.pdb
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\bin\Debug\TheCoolCRPG.exe.config
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\bin\Debug\TheCoolCRPG.exe
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\bin\Debug\TheCoolCRPG.pdb
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csprojAssemblyReference.cache
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csproj.CoreCompileInputs.cache
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.exe
+C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.pdb

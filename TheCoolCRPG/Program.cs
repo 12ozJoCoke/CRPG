@@ -196,7 +196,7 @@ namespace TheCoolCRPG
                         if (_player.CurrentWeapon.Name == "Hot Dog")
                         {
                             _player.PassiveAttackStat = 5;
-                            Console.WriteLine("From now on, you will passively do 5 damage to any enemy you meet!");
+                            Console.WriteLine("From now on, you will passively do {0} damage to any enemy you meet!", _player.PassiveAttackStat);
                         }
                         _player.UseWeapon(_player.CurrentWeapon);
                     }

@@ -124,7 +124,7 @@ namespace TheCoolCRPG
                 Console.WriteLine(monsterMessage);
                 Monster standardMonster = World.MonsterByID(newLocation.MonsterLivingHere.ID);
                 _currentMonster = new Monster(standardMonster.ID, standardMonster.Name, standardMonster.MaximumDamage, 
-                    standardMonster.RewardExperiencePoints, standardMonster.RewardGold, standardMonster.CurrentHitPoints, standardMonster.MaximumDamage);
+                    standardMonster.RewardExperiencePoints, standardMonster.RewardGold, standardMonster.CurrentHitPoints, standardMonster.MaximumDamage, standardMonster.RewardPassiveDamage);
 
                 foreach (LootItem lootItem in standardMonster.LootTable)
                 {

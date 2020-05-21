@@ -18,6 +18,7 @@ namespace TheCoolCRPG
         public List<PlayerQuest> Quests;
         public Weapon CurrentWeapon;
         public List<Weapon> Weapons = new List<Weapon>();
+        public List<HealingPotion> HealingPotions = new List<HealingPotion>();
 
         public Player(string name, int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level, int passiveAttackStat): base(currentHitPoints, maximumHitPoints)
         {
@@ -230,7 +231,7 @@ namespace TheCoolCRPG
             _currentMonster.CurrentHitPoints -= damageToMonster;
 
             // Display message
-            fightMessage += "You hit the " + _currentMonster.Name + " for " + damageToMonster.ToString() + " points with your passive attack." + Environment.NewLine;
+            fightMessage += "You hit the " + _currentMonster.Name + " for " + damageToMonster.ToString() + " points with your passive attack, and it has " + _currentMonster.CurrentHitPoints + " health left." + Environment.NewLine;
             Console.WriteLine(fightMessage);
 
             // Check if the monster is dead
@@ -247,6 +248,9 @@ namespace TheCoolCRPG
                 // Give player gold for killing the monster 
                 Gold += _currentMonster.RewardGold;
                 fightMessage += "You receive " + _currentMonster.RewardGold.ToString() + " gold" + Environment.NewLine;
+
+                PassiveAttackStat = _currentMonster.RewardPassiveDamage;
+                fightMessage += "You will now do " + PassiveAttackStat + "Passive Damage to any monster you meet!" + Environment.NewLine; 
 
 
                 // Get random loot items from the monster
@@ -330,6 +334,9 @@ namespace TheCoolCRPG
                 Gold += _currentMonster.RewardGold;
                 fightMessage += "You receive " + _currentMonster.RewardGold.ToString() + " gold" + Environment.NewLine;
 
+                PassiveAttackStat = _currentMonster.RewardPassiveDamage;
+                fightMessage += "You will now do " + PassiveAttackStat + " Passive Damage to any monster you meet!" + Environment.NewLine;
+
 
                 // Get random loot items from the monster
                 List<InventoryItem> lootedItems = new List<InventoryItem>();
@@ -387,7 +394,7 @@ namespace TheCoolCRPG
                 int damageToPlayer = RandomNumberGenerator.NumberBetween(0, _currentMonster.MaximumDamage);
 
                 // Display message
-                fightMessage += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
+                fightMessage += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage and has " + _currentMonster.CurrentHitPoints + " health left." + Environment.NewLine;
 
                 // Subtract damage from player
                 CurrentHitPoints -= damageToPlayer;
@@ -416,6 +423,17 @@ namespace TheCoolCRPG
                     {
                         Weapons.Add((Weapon)inventoryitem.Details);
                     }
+                }
+            }
+        }
+        public void UpdatePotions()
+        {
+            HealingPotions.Clear();
+            foreach (InventoryItem inventoryItem in this.Inventory)
+            {
+                if (inventoryItem.Details is HealingPotion)
+                {
+                    HealingPotions.Add((HealingPotion)inventoryItem.Details);
                 }
             }
         }

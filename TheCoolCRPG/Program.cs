@@ -146,6 +146,65 @@ namespace TheCoolCRPG
             }else if (input == "it broke")
             {
                 Console.WriteLine("You shouldn't have said anything about it working. I warned you.");
+            }else if (input.Contains("attack"))
+            {
+                if (_player.CurrentLocation.MonsterLivingHere == null)
+                {
+                    Console.WriteLine("No monsters here dingdong");
+                }else
+                {
+                    if (_player.CurrentWeapon == null)
+                    {
+                        Console.WriteLine("You fool, you have no weapon, you are sure to die.");
+                    }else
+                    {
+                        _player.UseWeapon(_player.CurrentWeapon);
+                    }
+                }
+            }else if (input.StartsWith("equip "))
+            {
+                _player.UpdateWeapons();
+                string inputWeaponName = input.Substring(6).Trim();
+                if (string.IsNullOrEmpty(inputWeaponName))
+                {
+                    Console.WriteLine("That's not a real weapon, for all I know it may be rather phallic.");
+
+                } else
+                {
+                    Weapon weaponToEquip = _player.Weapons.SingleOrDefault(x => x.Name.ToLower() == inputWeaponName
+                    || x.NamePlural.ToLower() == inputWeaponName);
+
+                    if (weaponToEquip == null)
+                    {
+                        Console.WriteLine("You have no weapons called {0}, You are truly screwed now.", inputWeaponName);
+                    }
+                    else
+                    {
+                        if (input.Substring(6).Trim() == "hot dog")
+                        {
+                            _player.CurrentWeapon = weaponToEquip;
+                            Console.WriteLine("You equip your {0}, also please don't take that out of context.", _player.CurrentWeapon.Name);
+                        }
+                        else
+                        {
+                            _player.CurrentWeapon = weaponToEquip;
+                            Console.WriteLine("You equip your {0}", _player.CurrentWeapon.Name);
+                        }
+                    }
+                }
+            }else if (input == "weapons")
+            {
+                _player.UpdateWeapons();
+                Console.WriteLine("List of weapons (because you couldn't remember the weapons you had): ");
+                foreach (Weapon w in _player.Weapons)
+                {
+                    Console.WriteLine("\n{0}", w.Name);
+                }
+            }else if (input == "give me hot dog")
+            {
+                InventoryItem hotdog = new InventoryItem(World.ItemByID(World.ITEM_ID_HOT_DOG), 1);
+                _player.Inventory.Add(hotdog);
+                Console.WriteLine("You have found a hot dog, topped with Ketchup, Mustard, and diced Onions, and all in a Whole Wheat bun. This is a weapon.");
             }
 
             else

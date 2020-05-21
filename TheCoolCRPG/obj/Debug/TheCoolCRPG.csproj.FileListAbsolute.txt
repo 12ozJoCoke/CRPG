@@ -12,3 +12,10 @@ C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csproj
 C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csproj.CoreCompileInputs.cache
 C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.exe
 C:\Users\Ben\Desktop\CRPGq3Catchup\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.pdb
+C:\UnityGames\CRPG\TheCoolCRPG\bin\Debug\TheCoolCRPG.exe.config
+C:\UnityGames\CRPG\TheCoolCRPG\bin\Debug\TheCoolCRPG.exe
+C:\UnityGames\CRPG\TheCoolCRPG\bin\Debug\TheCoolCRPG.pdb
+C:\UnityGames\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csprojAssemblyReference.cache
+C:\UnityGames\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.csproj.CoreCompileInputs.cache
+C:\UnityGames\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.exe
+C:\UnityGames\CRPG\TheCoolCRPG\obj\Debug\TheCoolCRPG.pdb

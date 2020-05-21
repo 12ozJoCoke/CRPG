@@ -16,3 +16,15 @@ Proposed Changes of v0.0.4
 + Monster detection
 
 v0.0.4 done yay
+
+Proposed Changes of v0.0.5
++ Weapon equipping
++  Attack Engine
++ Last bit of cleanup, abbreviate some of the commands
+- Finish Help System
+
+
+Extension Necessary:
+- Passive Attacking with stats
+(Example: you use an item or weapon, and that gives you a passive attack stat of 5. Now when you find an enemy, that enemy automatically takes 5 damage without being alerted of your presence.)
+(Furthermore, if you use a new weapon that would normally give passive attack stats, that weapon would override your previous passive attack stats.)

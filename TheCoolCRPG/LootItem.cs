@@ -9,13 +9,13 @@ namespace TheCoolCRPG
     public class LootItem
     {
         public Item Details;
-        public int DropPrecentage;
+        public int DropPercentage;
         public bool IsDefaultItem;
 
         public LootItem(Item details, int dropPrecentage, bool isDefaultItem)
         {
             Details = details;
-            DropPrecentage = dropPrecentage;
+            DropPercentage = dropPrecentage;
             IsDefaultItem = isDefaultItem;
         }
     }

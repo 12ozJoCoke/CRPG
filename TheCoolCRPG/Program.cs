@@ -10,7 +10,7 @@ namespace TheCoolCRPG
     //egg
     class Program
     {
-        private static Player _player = new Player("Fred the Fearless", 10, 10, 20, 0, 1);
+        private static Player _player = new Player("Fred the Fearless", 10, 10, 20, 0, 1, 0);
         static void Main(string[] args)
         {
             GameEngine.initialize();
@@ -97,20 +97,55 @@ namespace TheCoolCRPG
             } else if (input.Contains("north") || input == "n")
             {
                 _player.MoveNorth();
+                if (_player.CurrentLocation.MonsterLivingHere != null)
+                {
+                    Console.WriteLine("There is a monster here");
+                    _player.CheckForMonsterDeath(_player.PassiveAttackStat);
 
+                }else
+                {
+                    Console.WriteLine("There is not a monster here");
+                }
             }else if (input.Contains("south") || input == "s")
             {
                 _player.MoveSouth();
-
-            }else if (input.Contains("west") || input == "w")
+                if (_player.CurrentLocation.MonsterLivingHere != null)
+                {
+                    Console.WriteLine("There is a monster here");
+                    _player.CheckForMonsterDeath(_player.PassiveAttackStat);
+                }
+                else
+                {
+                    Console.WriteLine("There is not a monster here");
+                }
+            }
+            else if (input.Contains("west") || input == "w")
             {
                 _player.MoveWest();
-
-            }else if (input.Contains("east") || input == "e")
+                if (_player.CurrentLocation.MonsterLivingHere != null)
+                {
+                    Console.WriteLine("There is a monster here");
+                    _player.CheckForMonsterDeath(_player.PassiveAttackStat);
+                }
+                else
+                {
+                    Console.WriteLine("There is not a monster here");
+                }
+            }
+            else if (input.Contains("east") || input == "e")
             {
                 _player.MoveEast();
-
-            }else if (input.Contains("take the derivative"))
+                if (_player.CurrentLocation.MonsterLivingHere != null)
+                {
+                    Console.WriteLine("There is a monster here");
+                    _player.CheckForMonsterDeath(_player.PassiveAttackStat);
+                }
+                else
+                {
+                    Console.WriteLine("There is not a monster here");
+                }
+            }
+            else if (input.Contains("take the derivative"))
             {
                 GameEngine.DebugInfo();
             }else if (input == "inventory" || input == "i")
@@ -158,6 +193,11 @@ namespace TheCoolCRPG
                         Console.WriteLine("You fool, you have no weapon, you are sure to die.");
                     }else
                     {
+                        if (_player.CurrentWeapon.Name == "Hot Dog")
+                        {
+                            _player.PassiveAttackStat = 5;
+                            Console.WriteLine("From now on, you will passively do 5 damage to any enemy you meet!");
+                        }
                         _player.UseWeapon(_player.CurrentWeapon);
                     }
                 }

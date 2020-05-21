@@ -12,18 +12,20 @@ namespace TheCoolCRPG
         public int Gold;
         public int ExperiencePoints;
         public int Level;
+        public int PassiveAttackStat;
         public Location CurrentLocation;
         public List<InventoryItem> Inventory;
         public List<PlayerQuest> Quests;
         public Weapon CurrentWeapon;
         public List<Weapon> Weapons = new List<Weapon>();
 
-        public Player(string name, int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level): base(currentHitPoints, maximumHitPoints)
+        public Player(string name, int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level, int passiveAttackStat): base(currentHitPoints, maximumHitPoints)
         {
             Name = name;
             Gold = gold;
             ExperiencePoints = experiencePoints;
             Level = level;
+            PassiveAttackStat = passiveAttackStat;
             Inventory = new List<InventoryItem>();
             Quests = new List<PlayerQuest>();
         }
@@ -213,6 +215,87 @@ namespace TheCoolCRPG
 
                     return; // We found the quest, and marked it complete, so get out of this function
                 }
+            }
+        }
+
+        public void CheckForMonsterDeath(int PassiveAttack)
+        {
+            Monster _currentMonster = GameEngine._currentMonster;
+            string fightMessage = "";
+
+            // Determine the amount of damage to do to the monster
+            int damageToMonster = PassiveAttack;
+
+            // Apply the damage to the monster's CurrentHitPoints
+            _currentMonster.CurrentHitPoints -= damageToMonster;
+
+            // Display message
+            fightMessage += "You hit the " + _currentMonster.Name + " for " + damageToMonster.ToString() + " points with your passive attack." + Environment.NewLine;
+            Console.WriteLine(fightMessage);
+
+            // Check if the monster is dead
+            if (_currentMonster.CurrentHitPoints <= 0)
+            {
+                // Monster is dead
+                fightMessage += Environment.NewLine;
+                fightMessage += "You defeated the " + _currentMonster.Name + Environment.NewLine;
+
+                // Give player experience points for killing the monster
+                ExperiencePoints += _currentMonster.RewardExperiencePoints;
+                fightMessage += "You receive " + _currentMonster.RewardExperiencePoints.ToString() + " experience points" + Environment.NewLine;
+
+                // Give player gold for killing the monster 
+                Gold += _currentMonster.RewardGold;
+                fightMessage += "You receive " + _currentMonster.RewardGold.ToString() + " gold" + Environment.NewLine;
+
+
+                // Get random loot items from the monster
+                List<InventoryItem> lootedItems = new List<InventoryItem>();
+
+                // Add items to the lootedItems list, comparing a random number to the drop percentage
+                foreach (LootItem lootItem in _currentMonster.LootTable)
+                {
+                    if (RandomNumberGenerator.NumberBetween(1, 100) <= lootItem.DropPercentage)
+                    {
+                        lootedItems.Add(new InventoryItem(lootItem.Details, 1));
+                    }
+                }
+
+                // If no items were randomly selected, then add the default loot item(s).
+                if (lootedItems.Count == 0)
+                {
+                    foreach (LootItem lootItem in _currentMonster.LootTable)
+                    {
+                        if (lootItem.IsDefaultItem)
+                        {
+                            lootedItems.Add(new InventoryItem(lootItem.Details, 1));
+                        }
+                    }
+                }
+
+                // Add the looted items to the player's inventory
+                foreach (InventoryItem inventoryItem in lootedItems)
+                {
+                    AddItemToInventory(inventoryItem.Details);
+
+                    if (inventoryItem.Quantity == 1)
+                    {
+                        fightMessage += "You loot " + inventoryItem.Quantity.ToString() + " " + inventoryItem.Details.Name + Environment.NewLine;
+                    }
+                    else
+                    {
+                        fightMessage += "You loot " + inventoryItem.Quantity.ToString() + " " + inventoryItem.Details.NamePlural + Environment.NewLine;
+                    }
+                }
+
+
+
+                // Add a blank line to the messages box, just for appearance.
+                fightMessage += Environment.NewLine;
+                Console.WriteLine(fightMessage);
+
+                // Move player to current location (to heal player and create a new monster to fight)
+                MoveTo(CurrentLocation);
             }
         }
 
